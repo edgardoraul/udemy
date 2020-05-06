@@ -55,7 +55,8 @@ window.addEventListener("resize", function(){
 /* let desubicacion;
 desubicacion = window.navigator.language;
 
-log(desubicacion); */
+log(desubicacion); 
+
 var a = "a";
 let b = "b";
 const c = "c";
@@ -77,3 +78,60 @@ if(true)
 }
 
 log(`GLOBALES: ${a}, ${b}, ${c}`);
+*/
+
+// Object Literal
+/*
+const cliente = {
+    nombre: "Juan",
+    saldo: 501,
+    tipoCliente: function()
+    {
+        let tipo;
+
+        if(this.saldo > 1000)
+        {
+            tipo = "Forrao'en guita.";
+        }
+        else if(this.saldo > 500)
+        {
+            tipo = "Chetazo";
+        }
+        else
+        {
+            tipo = "Laucha";
+        }
+        return tipo;
+    }
+}
+log(cliente.tipo);
+*/
+// Método alternativo
+function Cliente(nombre, saldo)
+{
+    this.nombre = nombre;
+    this.saldo = saldo;
+    this.tipoCliente = function(edad)
+    {
+        let tipo;
+
+        if(this.saldo > 1000)
+        {
+            tipo = "Forrao'en guita.";
+        }
+        else if(this.saldo > 500)
+        {
+            tipo = "Chetazo";
+        }
+        else
+        {
+            tipo = "Laucha";
+        }
+
+        // Generalmente se utiliza el return cuando se quiere hacer algo con los datos que retorna.
+        return tipo;
+    }
+}
+const persona = new Cliente("Pedro", 20000);
+const persona2 = new Cliente("Kerancita", 6000);
+log(persona2.tipoCliente());

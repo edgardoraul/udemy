@@ -67,7 +67,6 @@ function enviarEmail(e)
     // Spinner al presionar Enviar
     const spinnerGif = document.querySelector('#spinner');
     spinnerGif.style.display = "block";
-    console.log(spinnerGif);
 
     // gif que envía el email
     const enviado = document.createElement("img");
