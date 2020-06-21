@@ -134,4 +134,8 @@ function Cliente(nombre, saldo)
 }
 const persona = new Cliente("Pedro", 20000);
 const persona2 = new Cliente("Kerancita", 6000);
+log(persona);
 log(persona2.tipoCliente());
+// acetcleanup de wordrpress para ener en cuenta
+
+// livehouse addon de chrome
