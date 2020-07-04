@@ -245,8 +245,9 @@ function Cliente(nombre, saldo)
 {
     this.nombre = nombre;
     this.saldo = saldo;
-    this.tipoCliente = function(edad)
-    {
+}
+
+Cliente.prototype.tipoCliente = function(){
         let tipo;
         if(this.saldo > 19000) {
             tipo = "Forrao'en Guita!";
@@ -256,12 +257,19 @@ function Cliente(nombre, saldo)
             tipo = "Cagado de hambre";
         }
         return tipo;
-    }
 }
-const cliente1 = new Cliente('Pedro', 1000);
-const cliente2 = new Cliente('Mateos', 32000);
-const cliente3 = new Cliente('Miguelito', 8000);
+// Prototipo que imprime saldo y nombre
+Cliente.prototype.nombreClienteSaldo = function(){
+    return `Nombre: ${this.nombre}, Tu saldo es de $${this.saldo}, Tipo cliente: ${this.tipoCliente()}.`;
+}
+// Retirar saldo
+Cliente.prototype.retirarSaldo = function(retiro)
+{
+    return this.saldo -= retiro;
+}
 
-log(cliente1.nombre);
-log(cliente2.saldo);
-log(cliente3.tipoCliente());
+
+const cliente1 = new Cliente('Pedro', 1000);
+cliente1.retirarSaldo(300);
+
+log(cliente1.nombreClienteSaldo());
