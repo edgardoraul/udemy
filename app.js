@@ -51,8 +51,8 @@ window.addEventListener("resize", function(){
     log(`Alto: ${altura}`);
     log(`Ancho: ${anchura}`);
 })
- */
-/* let desubicacion;
+
+// let desubicacion;
 desubicacion = window.navigator.language;
 
 log(desubicacion); 
@@ -78,10 +78,8 @@ if(true)
 }
 
 log(`GLOBALES: ${a}, ${b}, ${c}`);
-*/
 
 // Object Literal
-/*
 const cliente = {
     nombre: "Juan",
     saldo: 501,
@@ -105,7 +103,7 @@ const cliente = {
     }
 }
 log(cliente.tipo);
-*/
+
 // Método alternativo
 function Cliente(nombre, saldo)
 {
@@ -139,3 +137,131 @@ log(persona2.tipoCliente());
 // acetcleanup de wordrpress para ener en cuenta
 
 // livehouse addon de chrome
+
+
+// Objeto literal
+const cliente = {
+    nombre : "Juan",
+    saldo: 200,
+    tipoCliente: function()
+    {
+        let tipo;
+        if(this.saldo > 1000) {
+            tipo = "Titanio";
+        } else if(this.saldo > 500) {
+            tipo = "Cobre";
+        } else {
+            tipo = "Anormal";
+        }
+        return tipo;
+    }
+}
+console.log(cliente.tipoCliente());
+
+
+// Método alternativo
+function Cliente(nombre, saldo)
+{
+    this.nombre = nombre;
+    this.saldo = saldo;
+    this.tipoCliente = function(edad)
+    {
+        let tipo;
+        if(this.saldo > 19000) {
+            tipo = "Forrao'en Guita!";
+        } else if (this.saldo > 5000) {
+            tipo = "Cheto";
+        } else {
+            tipo = "Cagado de hambre";
+        }
+        return tipo;
+    }
+}
+
+const persona = new Cliente("El Brayan", 20000);
+const persona2 = new Cliente("La Yesi", 6000);
+const persona3 = new Cliente("El Yónatan", 4000);
+
+log(persona2.nombre + ", es de tipo: ")
+log(persona2.tipoCliente());
+
+log(persona.nombre + ", es de tipo: ")
+log(persona.tipoCliente());
+log(persona3.nombre + ", es de tipo: ")
+log(persona3.tipoCliente());
+
+
+// String
+const nombre1 = "Pegro";
+const nombre2 = new String("Pegro");
+log(typeof nombre1);
+log(typeof nombre2);
+
+if(nombre1 === nombre2)
+{
+    log("Sí, son iguales.");
+} else {
+    log("Nop! Algo raro.");
+}
+
+
+// Númeritos
+const numero1 = 20;
+const numero2 = new Number(20);
+log(typeof numero1);
+log(typeof numero1);
+log(typeof numero2);
+
+const buleano1 = true;
+const buleano2 = new Boolean(true);
+log(typeof buleano1);
+log(typeof buleano2);
+
+const funcion1 = function(a,b) {
+    return a+b;
+}
+const funcion2 = new Function('a', 'b', 'return a + b');
+
+// Objetos
+const persona1 = {
+    nombre: "Edgard"
+}
+const persona2 = new Object({nombre:'Edgard'});
+
+log(funcion1(2,3));
+log(funcion2(5,2));
+log(persona1);
+log(persona2);
+
+// Arreglos
+const arreglo1 = [1,2,3,4];
+const arreglo2 = new Array(1,2,3,4);
+log(arreglo1);
+log(arreglo2);
+*/
+
+// Prototipos
+function Cliente(nombre, saldo)
+{
+    this.nombre = nombre;
+    this.saldo = saldo;
+    this.tipoCliente = function(edad)
+    {
+        let tipo;
+        if(this.saldo > 19000) {
+            tipo = "Forrao'en Guita!";
+        } else if (this.saldo > 5000) {
+            tipo = "Cheto";
+        } else {
+            tipo = "Cagado de hambre";
+        }
+        return tipo;
+    }
+}
+const cliente1 = new Cliente('Pedro', 1000);
+const cliente2 = new Cliente('Mateos', 32000);
+const cliente3 = new Cliente('Miguelito', 8000);
+
+log(cliente1.nombre);
+log(cliente2.saldo);
+log(cliente3.tipoCliente());
