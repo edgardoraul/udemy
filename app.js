@@ -238,7 +238,7 @@ const arreglo1 = [1,2,3,4];
 const arreglo2 = new Array(1,2,3,4);
 log(arreglo1);
 log(arreglo2);
-*/
+
 
 // Prototipos
 function Cliente(nombre, saldo)
@@ -266,7 +266,7 @@ const cliente1 = new Cliente('Pedro', 1000);
 
 log(cliente1.nombreClienteSaldo());
 
-/* HERENCIA */
+// HERENCIA
 // Banca para empresas.
 function Empresa(nombre, saldo, telefono, tipo)
 {
@@ -278,3 +278,21 @@ function Empresa(nombre, saldo, telefono, tipo)
 Empresa.prototype = Object.create(Cliente.prototype);
 const empresa = new Empresa('Udemy', 142342523532, 2612440817, 'Aburración');
 log(empresa.nombreClienteSaldo());
+*/
+
+// Object Create
+const Cliente = {
+    imprimirSaldo: function() {
+        return `Hola ${this.nombre}, tu saldo es de ${this.saldo}.`
+    },
+    retirarSaldo: function(retiro){
+        return this.saldo -= retiro;
+    }
+}
+
+// Crear el objeto
+const mary = Object.create(Cliente);
+mary.nombre = "Mary";
+mary.saldo = 3245;
+mary.retirarSaldo(3000);
+log(mary.imprimirSaldo());
