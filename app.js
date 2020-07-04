@@ -262,14 +262,19 @@ Cliente.prototype.tipoCliente = function(){
 Cliente.prototype.nombreClienteSaldo = function(){
     return `Nombre: ${this.nombre}, Tu saldo es de $${this.saldo}, Tipo cliente: ${this.tipoCliente()}.`;
 }
-// Retirar saldo
-Cliente.prototype.retirarSaldo = function(retiro)
-{
-    return this.saldo -= retiro;
-}
-
-
 const cliente1 = new Cliente('Pedro', 1000);
-cliente1.retirarSaldo(300);
 
 log(cliente1.nombreClienteSaldo());
+
+/* HERENCIA */
+// Banca para empresas.
+function Empresa(nombre, saldo, telefono, tipo)
+{
+    Cliente.call(this, nombre, saldo);
+    this.telefono = telefono;
+    this.tipo = tipo;
+}
+
+Empresa.prototype = Object.create(Cliente.prototype);
+const empresa = new Empresa('Udemy', 142342523532, 2612440817, 'Aburración');
+log(empresa.nombreClienteSaldo());
