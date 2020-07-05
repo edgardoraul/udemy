@@ -296,7 +296,7 @@ mary.nombre = "Mary";
 mary.saldo = 3245;
 mary.retirarSaldo(3000);
 log(mary.imprimirSaldo());
-*/
+
 
 // CLASES
 class Cliente
@@ -340,3 +340,52 @@ class Cliente
 const maria = new Cliente('María', 'Perez', 423423);
 maria.retirarSaldo(4000);
 log(Cliente.bienvenido());
+*/
+// Extención de clases
+class Cliente
+{
+    constructor(nombre, saldo)
+    {
+        this.nombre = nombre;
+        this.saldo = saldo;
+    }
+
+    imprimirSaldo()
+    {
+        return `Hola ${this.nombre}, tu saldo es de $${this.saldo}.`;
+    }
+
+    // Métodos estáticos.
+    static bienvenido()
+    {
+        return `Bienvenido al Pajero.`;
+    }
+}
+
+// Puedo seguir con la clase principal y con la extendida no pasa nada. Está todo ok.
+const cliente = new Cliente("Pepito", "Juarez", 2938472);
+log(cliente.imprimirSaldo());
+
+// Clase extendida. Esto es Herencia.
+class Empresa extends Cliente
+{
+    constructor(nombre, saldo, telefono, tipo)
+    {
+        // Va hacia el constructor Padre
+        super(nombre, saldo);
+
+        // No existe en el constructor Padre
+        this.telefono = telefono;
+        this.tipo = tipo;
+    }
+
+    // Métodos estáticos reformado.
+    static bienvenido()
+    {
+        return `Bienvenido al Pajero  para empresas.`;
+    }
+}
+
+const empresa = new Empresa('Empresa1', 983479857349, 4882213);
+log(empresa.imprimirSaldo());
+log(Empresa.bienvenido());
