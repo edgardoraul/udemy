@@ -278,7 +278,7 @@ function Empresa(nombre, saldo, telefono, tipo)
 Empresa.prototype = Object.create(Cliente.prototype);
 const empresa = new Empresa('Udemy', 142342523532, 2612440817, 'Aburración');
 log(empresa.nombreClienteSaldo());
-*/
+
 
 // Object Create
 const Cliente = {
@@ -296,3 +296,47 @@ mary.nombre = "Mary";
 mary.saldo = 3245;
 mary.retirarSaldo(3000);
 log(mary.imprimirSaldo());
+*/
+
+// CLASES
+class Cliente
+{
+    constructor(nombre, apellido, saldo)
+    {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.saldo = saldo;
+    }
+
+    imprimirSaldo()
+    {
+        return `Hola ${this.nombre} ${this.apellido}, tu saldo es de $${this.saldo}.`;
+    }
+
+    tipoCliente()
+    {
+        let tipo;
+        if(this.saldo > 19000) {
+            tipo = "Forrao'en Guita!";
+        } else if (this.saldo > 5000) {
+            tipo = "Cheto";
+        } else {
+            tipo = "Cagado de hambre";
+        }
+        return tipo;
+    }
+
+    retirarSaldo(retiro)
+    {
+        return this.saldo -= retiro;
+    }
+
+    // Métodos estáticos. No requiere crear instancias. Es de la clase, nada más.
+    static bienvenido()
+    {
+        return `Bienvenido al Pajero.`;
+    }
+}
+const maria = new Cliente('María', 'Perez', 423423);
+maria.retirarSaldo(4000);
+log(Cliente.bienvenido());
