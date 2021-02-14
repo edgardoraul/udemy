@@ -1,10 +1,13 @@
+// Destructuring
+
 const producto = {
-	nombre: "MOnitor 20 cm",
-	precio: 2343434,
+	nombre: "Monitor 20 cm",
+	precio: "$ 1.500",
 	disponible: true
 }
 
-// Destructuring
-const { nombre, precio, disponible, hola } = producto;
+// const nombre = producto.nombre;
+// console.log(nombre);
 
-console.log(nombre, precio, disponible, hola);
+const { nombre, precio, disponible, noexiste } = producto;
+console.log(nombre, "\n" + precio + "\n",  disponible, noexiste);
