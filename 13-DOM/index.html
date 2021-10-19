@@ -249,5 +249,48 @@
     <script src="js/09-scripts.js"></script>
     <script src="js/10-scripts.js"></script>
     <script src="js/11-scripts.js"></script>
+    <script>
+        // Contador de tiempo
+window.addEventListener("DOMContentLoaded", contador);
+function contador()
+{
+	// asignar el valor de las unidades en milisegundos
+	let msecPerMinute = 1000 * 60;
+	let msecPerHour = msecPerMinute * 60;
+	let msecPerDay = msecPerHour * 24;
+
+	// asignar la fecha en milisegundos
+	let date = new Date();
+	let dateMsec = date.getTime();
+
+	// asignar la fecha
+	date.setFullYear(2021);
+	date.setMonth(3);
+	date.setDate(3);
+	date.setHours(8, 0, 0, 0);
+
+	// Obtener la diferencia en milisegundos
+	let interval = dateMsec - date.getTime();
+
+	// Calcular cuentos días contiene el intervalo. Substraer cuantos días
+	//tiene el intervalo para determinar el sobrante
+	var days = Math.floor(interval / msecPerDay );
+	interval = interval - (days * msecPerDay );
+
+	// Calcular las horas , minutos y segundos
+	let hours = Math.floor(interval / msecPerHour );
+	interval = interval - (hours * msecPerHour );
+
+	let minutes = Math.floor(interval / msecPerMinute );
+	interval = interval - (minutes * msecPerMinute );
+
+	let seconds = Math.floor(interval / 1000 );
+
+	// Mostrar el resultado.
+	const mostrar = document.querySelector("#miContador");
+	mostrar.innerText = days + " días, " + hours + " horas, " + minutes + " minutos.";
+}
+
+    </script>
 </body>
 </html>
